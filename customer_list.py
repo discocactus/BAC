@@ -69,7 +69,7 @@ bestec_table = bestec_table[['担当者コード', '担当者名', '得意先', 
 
 # In[ ]:
 
-version = 180111
+# version = 180111
 
 
 # In[ ]:
@@ -79,7 +79,12 @@ version = 180111
 
 # In[ ]:
 
-file_name = r'{0}\得意先リスト20180109更新_{1}.xlsx'.format(path, version)
+# file_name = r'{0}\得意先リスト20180109更新_{1}.xlsx'.format(path, version)
+
+
+# In[ ]:
+
+file_name = r'{0}\得意先リスト20180316更新.xlsx'.format(path)
 
 
 # ### bestec
@@ -95,25 +100,25 @@ sheet_1 = 'Bestec得意先リスト'
 bestec_excel = pd.read_excel(file_name, sheet_1,
                                keep_default_na=False,
                                dtype={'FAX番号': str,
-                                        '住所1': str,
-                                        '住所2': str,
-                                        '住所3': str,
-                                        '削除区分': str,
-                                        '名カナ': str,
-                                        '回収支払日1': str,
-                                        '回収支払月1': str,
-                                        '得意先': str,
-                                        '得意先名1': str,
-                                        '得意先名2': str,
-                                        '担当者コード': str,
-                                        '担当者名': str,
-                                        '業種': str,
-                                        '業種名': str,
-                                        '締日グループ名1': str,
-                                        '郵便番号': str,
-                                        '都道府県': str,
-                                        '都道府県名': str,
-                                        '電話番号': str})
+                                      '住所1': str,
+                                      '住所2': str,
+                                      '住所3': str,
+                                      '削除区分': str,
+                                      '名カナ': str,
+                                      '回収支払日1': str,
+                                      '回収支払月1': str,
+                                      '得意先': str,
+                                      '得意先名1': str,
+                                      '得意先名2': str,
+                                      '担当者コード': str,
+                                      '担当者名': str,
+                                      '業種': str,
+                                      '業種名': str,
+                                      '締日グループ名1': str,
+                                      '郵便番号': str,
+                                      '都道府県': str,
+                                      '都道府県名': str,
+                                      '電話番号': str})
 
 
 # In[ ]:
@@ -121,25 +126,26 @@ bestec_excel = pd.read_excel(file_name, sheet_1,
 # 列の並び替え (2017年の元ファイルに揃える)
 # (列の追加や削減、列名の変更があった場合にはこのままでは対応できないので要注意)
 bestec_excel = bestec_excel[['担当者コード',
-                              '担当者名',
-                              '得意先',
-                              '名カナ',
-                              '得意先名1',
-                              '得意先名2',
-                              '郵便番号',
-                              '住所1',
-                              '住所2',
-                              '住所3',
-                              '電話番号',
-                              'FAX番号',
-                              '締日グループ名1',
-                              '回収支払月1',
-                              '回収支払日1',
-                              '業種',
-                              '業種名',
-                              '都道府県',
-                              '都道府県名',
-                              '削除区分'
+                             '担当者名',
+                             '得意先',
+                             '名カナ',
+                             '得意先名1',
+                             '得意先名2',
+                             '郵便番号',
+                             '住所1',
+                             '住所2',
+                             '住所3',
+                             '電話番号',
+                             'FAX番号',
+                             '締日グループ名1',
+                             '回収支払月1',
+                             '回収支払日1',
+                             # '回収種別名',
+                             '業種',
+                             '業種名',
+                             '都道府県',
+                             '都道府県名',
+                             '削除区分'
                              ]]
 
 
@@ -150,7 +156,17 @@ bestec_excel.columns
 
 # In[ ]:
 
+len(bestec_excel.columns)
+
+
+# In[ ]:
+
 bestec_excel
+
+
+# In[ ]:
+
+len(bestec_excel)
 
 
 # In[ ]:
@@ -173,52 +189,56 @@ bestec_table
 
 # In[ ]:
 
-sheet_2 = 'ビーテック得意先リスト'
+# sheet_2 = 'ビーテック得意先リスト'
+
+
+# In[ ]:
+
+sheet_2 = 'Beetech得意先リスト'
 
 
 # In[ ]:
 
 # 読み込み (列の追加や削減、列名の変更があった場合にはこのままでは対応できないので要注意)
-beetech_excel = pd.read_excel(file_name, sheet_2,
+beetech_table = pd.read_excel(file_name, sheet_2,
                                keep_default_na=False,
                                dtype={'FAX番号': str,
-                                         '住所1': str,
-                                         '住所2': str,
-                                         '住所3': str,
-                                         '削除区分': str,
-                                         '名カナ': str,
-                                         '回収支払日1': str,
-                                         '回収支払月1': str,
-                                         '回収種別名': str,
-                                         '得意先': str,
-                                         '得意先備考1': str,
-                                         '得意先備考2': str,
-                                         '得意先備考3': str,
-                                         '得意先名1': str,
-                                         '得意先名2': str,
-                                         '担当者名': str,
-                                         '業種': str,
-                                         '業種名': str,
-                                         '締日グループ名1': str,
-                                         '請求先コード': str,
-                                         '請求先略称': str,
-                                         '郵便番号': str,
-                                         '都道府県': str,
-                                         '都道府県名': str,
-                                         '電話番号': str})
+                                      '住所1': str,
+                                      '住所2': str,
+                                      '住所3': str,
+                                      '削除区分': str,
+                                      '名カナ': str,
+                                      '回収支払日1': str,
+                                      '回収支払月1': str,
+                                      '回収種別名': str,
+                                      '得意先': str,
+                                      '得意先備考1': str,#
+                                      '得意先備考2': str,#
+                                      '得意先備考3': str,#
+                                      '得意先名1': str,
+                                      '得意先名2': str,
+                                      '担当者名': str,
+                                      '業種': str,#
+                                      '業種名': str,
+                                      '締日グループ名1': str,
+                                      '請求先コード': str,#
+                                      '請求先略称': str,#
+                                      '郵便番号': str,
+                                      '都道府県': str,
+                                      '都道府県名': str,
+                                      '電話番号': str})
 
 
 # In[ ]:
 
 # 列の並び替え (2017年の元ファイルに揃える)
 # (列の追加や削減、列名の変更があった場合にはこのままでは対応できないので要注意)
-beetech_excel = beetech_excel[['名カナ',
+beetech_excel = beetech_table[[# '担当者コード',
+                               '担当者名',
                                '得意先',
+                               '名カナ',
                                '得意先名1',
                                '得意先名2',
-                               '担当者名',
-                               '請求先コード',
-                               '請求先略称',
                                '郵便番号',
                                '住所1',
                                '住所2',
@@ -229,13 +249,9 @@ beetech_excel = beetech_excel[['名カナ',
                                '回収支払月1',
                                '回収支払日1',
                                '回収種別名',
-                               '業種',
                                '業種名',
                                '都道府県',
                                '都道府県名',
-                               '得意先備考1',
-                               '得意先備考2',
-                               '得意先備考3',
                                '削除区分'
                               ]]
 
@@ -247,12 +263,22 @@ beetech_excel.columns
 
 # In[ ]:
 
+len(beetech_excel.columns)
+
+
+# In[ ]:
+
 beetech_excel
 
 
 # In[ ]:
 
-beetech_table.dtypes
+len(beetech_excel)
+
+
+# In[ ]:
+
+beetech_excel.dtypes
 
 
 # In[ ]:
@@ -490,25 +516,25 @@ writer.save()
 # bestec 確認
 df = pd.read_excel(output_name, sheet_1, keep_default_na=False,
                    dtype={'FAX番号': str,
-                            '住所1': str,
-                            '住所2': str,
-                            '住所3': str,
-                            '削除区分': str,
-                            '名カナ': str,
-                            '回収支払日1': str,
-                            '回収支払月1': str,
-                            '得意先': str,
-                            '得意先名1': str,
-                            '得意先名2': str,
-                            '担当者コード': str,
-                            '担当者名': str,
-                            '業種': str,
-                            '業種名': str,
-                            '締日グループ名1': str,
-                            '郵便番号': str,
-                            '都道府県': str,
-                            '都道府県名': str,
-                            '電話番号': str})
+                          '住所1': str,
+                          '住所2': str,
+                          '住所3': str,
+                          '削除区分': str,
+                          '名カナ': str,
+                          '回収支払日1': str,
+                          '回収支払月1': str,
+                          '得意先': str,
+                          '得意先名1': str,
+                          '得意先名2': str,
+                          '担当者コード': str,
+                          '担当者名': str,
+                          '業種': str,
+                          '業種名': str,
+                          '締日グループ名1': str,
+                          '郵便番号': str,
+                          '都道府県': str,
+                          '都道府県名': str,
+                          '電話番号': str})
 
 
 # In[ ]:
@@ -519,6 +545,11 @@ df
 # In[ ]:
 
 df.dtypes
+
+
+# In[ ]:
+
+len(df)
 
 
 # In[ ]:
@@ -551,30 +582,30 @@ df['得意先名2'].values
 # beetech 確認
 df = pd.read_excel(output_name, sheet_2, keep_default_na=False,
                    dtype={'FAX番号': str,
-                             '住所1': str,
-                             '住所2': str,
-                             '住所3': str,
-                             '削除区分': str,
-                             '名カナ': str,
-                             '回収支払日1': str,
-                             '回収支払月1': str,
-                             '回収種別名': str,
-                             '得意先': str,
-                             '得意先備考1': str,
-                             '得意先備考2': str,
-                             '得意先備考3': str,
-                             '得意先名1': str,
-                             '得意先名2': str,
-                             '担当者名': str,
-                             '業種': str,
-                             '業種名': str,
-                             '締日グループ名1': str,
-                             '請求先コード': str,
-                             '請求先略称': str,
-                             '郵便番号': str,
-                             '都道府県': str,
-                             '都道府県名': str,
-                             '電話番号': str})
+                          '住所1': str,
+                          '住所2': str,
+                          '住所3': str,
+                          '削除区分': str,
+                          '名カナ': str,
+                          '回収支払日1': str,
+                          '回収支払月1': str,
+                          '回収種別名': str,
+                          '得意先': str,
+                          '得意先備考1': str,#
+                          '得意先備考2': str,#
+                          '得意先備考3': str,#
+                          '得意先名1': str,
+                          '得意先名2': str,
+                          '担当者名': str,
+                          '業種': str,#
+                          '業種名': str,
+                          '締日グループ名1': str,
+                          '請求先コード': str,#
+                          '請求先略称': str,#
+                          '郵便番号': str,
+                          '都道府県': str,
+                          '都道府県名': str,
+                          '電話番号': str})
 
 
 # # CSV 保存、確認
