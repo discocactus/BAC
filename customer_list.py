@@ -79,14 +79,15 @@ bestec_table = bestec_table[['担当者コード', '担当者名', '得意先', 
 
 # In[ ]:
 
-file_name = r'{0}\得意先リスト20180316更新.xlsx'.format(path)
+file_name = r'{0}\得意先リスト20181227更新.xlsx'.format(path)
 
 
 # ### bestec
 
 # In[ ]:
 
-sheet_1 = 'Bestec得意先リスト'
+# sheet_1 = 'Bestec得意先リスト'
+sheet_1 = 'ベステック得意先リスト'
 
 
 # In[ ]:
@@ -134,7 +135,8 @@ bestec_excel
 # In[ ]:
 
 len(bestec_excel)
-# 2018-07-31 924
+# 2018-07-31 914
+# 2019-01-07 948
 
 
 # In[ ]:
@@ -158,11 +160,6 @@ bestec_table
 # In[ ]:
 
 sheet_2 = 'ビーテック得意先リスト'
-
-
-# In[ ]:
-
-# sheet_2 = 'Beetech得意先リスト'
 
 
 # In[ ]:
@@ -218,6 +215,7 @@ beetech_excel
 
 len(beetech_excel)
 # 2018-07-31 914
+# 2018-01-07 945
 
 
 # In[ ]:
@@ -461,6 +459,12 @@ beetech_table['得意先'].apply(lambda x: len(x)).max()
 # In[ ]:
 
 output_name = r'{0}\Bestecaudio得意先リスト.xlsx'.format(path)
+
+
+# In[ ]:
+
+# シート名を旧版に揃える
+sheet_1 = 'Bestec得意先リスト'
 
 
 # In[ ]:
