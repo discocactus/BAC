@@ -87,7 +87,8 @@ file_name = r'{0}\得意先リスト20181227更新.xlsx'.format(path)
 # In[ ]:
 
 # sheet_1 = 'Bestec得意先リスト'
-sheet_1 = 'ベステック得意先リスト'
+# sheet_1 = 'ベステック得意先リスト'
+sheet_1 = 'べステックオーディオ得意先リスト'
 
 
 # In[ ]:
@@ -137,6 +138,9 @@ bestec_excel
 len(bestec_excel)
 # 2018-07-31 914
 # 2019-01-07 948
+# 2019-08-19 975
+# 2019-08-26 977
+# 2020-01-16 997
 
 
 # In[ ]:
@@ -215,7 +219,10 @@ beetech_excel
 
 len(beetech_excel)
 # 2018-07-31 914
-# 2018-01-07 945
+# 2019-01-07 945
+# 2019-08-19 1000 元ファイルはKEY渋谷の旧住所分が重複登録されているので削除, 999
+# 2016-08-26 1000 元ファイルはKEY渋谷の旧住所分が重複登録されているので削除, 999
+# 2020-01-16 1016 元ファイルはKEY渋谷の旧住所分が重複登録されているので削除, 1015
 
 
 # In[ ]:
@@ -376,6 +383,12 @@ bestec_table['得意先'].duplicated().any()
 
 # In[ ]:
 
+# 得意先コードの重複を確認
+bestec_table['得意先'][bestec_table['得意先'].duplicated()]
+
+
+# In[ ]:
+
 # 得意先コードの桁数を確認
 bestec_table['得意先'].apply(lambda x: len(x)).min()
 
@@ -440,6 +453,12 @@ beetech_table
 
 # 得意先コードの重複を確認
 beetech_table['得意先'].duplicated().any()
+
+
+# In[ ]:
+
+# 得意先コードの重複を確認
+beetech_table['得意先'][beetech_table['得意先'].duplicated()]
 
 
 # In[ ]:
